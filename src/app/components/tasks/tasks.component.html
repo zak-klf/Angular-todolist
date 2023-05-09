@@ -1,2 +1,19 @@
-<app-task-item *ngFor="let task of tasks" [task]="task">
+
+
+<app-add-task
+    (onAddTask)="addTask($event)">
+
+</app-add-task>
+
+<!-- 
+    loop through tasks with ngFor directive
+    event onDeleteTask -> function deleteTask(task) is called, whenever the task item has emitted a task to delete, 
+    the parent compoenent tasks handles the deleting
+
+--->
+<app-task-item 
+    *ngFor="let task of tasks" 
+    [task]="task" 
+    (onDeleteTask)="deleteTask(task)" 
+    (onToggleReminder)="toggleReminder(task)">
 </app-task-item>

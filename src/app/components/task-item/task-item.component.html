@@ -1,6 +1,9 @@
-<div class="task">
-    <h3>      
+<!-- ng Class directive, ajoute la classe CSS reminder si task.reminder = true, permet en somme d'ajouter l'attribut CSS vert montrant que la tache est en rappel -->
+<div [ngClass]="{ reminder: task.reminder }" class="task" (dblclick)="onToggle(task)">
+    <h3> 
         {{task.text}} 
+        <fa-icon (click)="onDelete(task)" [icon]="faTimes" [ngStyle]="{'color': 'red'}">
+        </fa-icon>     
     </h3>
     <p>
         {{task.day}}
